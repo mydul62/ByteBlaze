@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { Link, Outlet, useLoaderData, useNavigation } from "react-router-dom";
+import { Link, Outlet, useLoaderData } from "react-router-dom";
+import { IoBookmarksOutline } from "react-icons/io5";
+import { saveItem } from "../Unit/Util";
 
 const BlogPosts = () => {
   const posts = useLoaderData();
-  const [togle,setTogle]=useState(1)
-  const navigation = useNavigation();
-
-  if(navigation.state==='loading')
+  const [togle,setTogle]=useState(1);
+  const handleAddBookmark =(b)=>{
+    saveItem(b)
+  }
   return (
     <div>
       <div className="max-w-3xl px-6 py-16 mx-auto space-y-12">
@@ -72,6 +74,10 @@ const BlogPosts = () => {
                 </svg>
                 <span>Author</span>
               </Link>
+              {/* bookmark  */}
+              <div onClick={()=>handleAddBookmark(posts)} className=" ml-6  bg-opacity-20 bg-primary rounded-full p-2  hover:bg-opacity-30 font-extrabold hover:scale-105 overflow-hidden">
+              <IoBookmarksOutline size='20' className=" text-secondary "/>
+              </div>
             </div>
           </div>
         </article>

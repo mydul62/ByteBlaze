@@ -3,8 +3,7 @@ import Markdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 const Content = () => {
   const blog = useLoaderData();
-  let { title, last_comment_at, description, cover_image ,tags,body_html} = blog;
-  console.log(blog);
+  let { title,cover_image ,tags,body_html} = blog;
   const notFoundImage = "../../public/404.jpg";
   return (
     <div className="max-w-full mx-auto   shadow-xl  overflow-hidden p-2 ">
@@ -14,10 +13,10 @@ const Content = () => {
         src={cover_image || notFoundImage}
       />
       <div className="flex flex-wrap py-6 gap-6">
-        {tags.map((tag, idx) => (
+        {tags.map((tag, index) => (
           <>
             <a
-              key={idx}
+              key={index}
               rel="noopener noreferrer"
               href="#"
               className="px-3 py-1 rounded-sm "

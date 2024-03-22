@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
-
-const BlogCard = ({blog}) => {
+import { MdDeleteForever } from "react-icons/md";
+import { deleteItem } from "../Unit/Util";
+const BlogCard = ({blog,deletable,handleDelete}) => {
   let {title,last_comment_at,description,cover_image,id}=blog;
   const notFoundImage = '../../public/404.jpg';
+
   return (
     <>
-    <Link to={`/blog/${id}`}
-      className="max-w-sm mx-auto group hover:no-underline focus:no-underline border border-[#b7b6b6] hover:border-2 hover:border-primary p-3 transition hover:scale-105 duration-500"
+   <div className="relative mx-auto group hover:no-underline focus:no-underline border border-[#b7b6b6] hover:border-2 hover:border-primary p-3 transition hover:scale-105 duration-500">
+   <Link to={`/blog/${id}`} className=" z-10"
+      
     >
       <img
         role="presentation"
@@ -23,6 +26,10 @@ const BlogCard = ({blog}) => {
         </p>
       </div>
     </Link>
+    <div onClick={()=>handleDelete(id)} className="absolute -top-6 -right-6 z-20">
+      {deletable && <div><MdDeleteForever className=" text-4xl text-secondary" /></div>}
+      </div>
+   </div>
     </>
   );
 };
