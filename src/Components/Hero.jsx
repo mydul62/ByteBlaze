@@ -5,7 +5,7 @@ const Hero = () => {
     <div className="hero flex flex-col justify-center items-center relative min-h-[calc(100vh-112px)] bg-base-200">
       <div className="hero-content text-center">
         <div className="w-[80%]">
-          <h1 className="text-5xl font-bold">
+          <h1 className="text-3xl lg:text-5xl font-bold">
             Wellcome to{" "}
             <span className=" bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient bg-300%">
               ByteBlaze
