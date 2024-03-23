@@ -5,7 +5,7 @@ import "./Nav.css"
 import { IoMenuSharp } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 const Nav = () => {
-  const [theme,setTheme]=useState('light');
+  const [theme,setTheme]=useState(localStorage.getItem('theme')?localStorage.getItem('theme'):'light');
 
   const hangdleOnChangle=(e)=>{
      let isChecked=(e.target.checked);
